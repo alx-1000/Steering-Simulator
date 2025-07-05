@@ -6,6 +6,14 @@
     <title>p5.js Sketch</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script src="VehicleKinematics.js"></script>
+    <style>
+        html, body {
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     <!-- チェックボックスUIを左下・英語・背景なし・白文字に変更 -->
@@ -29,7 +37,7 @@
         }
 
         function setup() {
-            createCanvas(windowWidth-50, windowHeight);
+            createCanvas(windowWidth, windowHeight);
             background(0);
             let initialVelocity = createVector(1, 0); // 初期速度ベクトルを設定
             car = new VehicleKinematics(width/2, 200, HALF_PI, initialVelocity); // 車両運動モデルを初期化
@@ -300,7 +308,7 @@
         }
 
         function windowResized() {
-            resizeCanvas(windowWidth-50, windowHeight);
+            resizeCanvas(windowWidth, windowHeight);
             background(0);
             // UIパネル位置も更新
             const uiPanel = document.getElementById('ui-panel');
